@@ -18,3 +18,12 @@ export const nameValidator = (name: string) => {
 
   return '';
 };
+
+export const uuidValidator = (uuid: string) => {
+  const re = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+  if (!uuid || uuid.length <= 0) return 'Invalid token.';
+  if (!re.test(uuid)) return 'Ooops! We need a valid token.';
+
+  return '';
+};
