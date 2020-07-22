@@ -55,9 +55,9 @@ const AuthProvider: React.FC = ({ children }) => {
     onError: (error) => {
       const errors = errorParser(error);
 
-      if (errors) {
-        throw new Error(errors[0].message);
-      }
+      const errorMessage = errors.length > 0 ? errors[0].message : 'Something went wrong.';
+
+      throw new Error(errorMessage);
     },
   });
 
