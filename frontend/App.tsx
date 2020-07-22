@@ -3,7 +3,7 @@ import { Platform } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import App from './src/App';
-import { theme } from './src/core/theme';
+import { theme } from './src/styles/themes/default';
 
 import ContextProvider from './src/context/state';
 

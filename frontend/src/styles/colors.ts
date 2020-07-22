@@ -1,5 +1,3 @@
-// colors
-// /////////////////////////////////////////////////////////////////////////////
 export default {
   black: '#000',
   black20: 'rgba(0, 0, 0, 0.2)',
@@ -9,7 +7,14 @@ export default {
   white20: 'rgba(255, 255, 255, 0.2)',
   white50: 'rgba(255, 255, 255, 0.5)',
 
-  brandPrimary: '#1d2d3a',
+  primary: '#6300ee',
+  secondary: '#414757',
+  accent: '#03dac4',
+  background: '#f6f6f6',
+  surface: '#ffffff',
+  text: '#000000',
+  onBackground: '#000000',
+  onSurface: '#000000',
 
   blue: '#0197f6',
   brown: '#bcab79',
@@ -17,6 +22,6 @@ export default {
   red: '#e63946',
 
   success: 'green',
-  error: '#e63946',
+  error: '#f13a59',
   info: 'yellow',
 };
