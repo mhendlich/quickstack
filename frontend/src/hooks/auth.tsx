@@ -6,19 +6,25 @@ import React, {
   useEffect,
 } from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
-import { gql, useMutation } from '@apollo/client';
+import { gql, useMutation, ApolloError } from '@apollo/client';
 import errorParser from '../utils/errorParser';
+
+type User = {
+  id: string;
+  email: string;
+};
 
 interface AuthState {
   token: string;
-  user: object;
+  user: User;
 }
 interface SignInCredentials {
   email: string;
   password: string;
 }
+
 interface AuthContextData {
-  user: object;
+  user: User;
   loading: boolean;
   handleSignIn(credentials: SignInCredentials): Promise<void | string>;
   signOut(): void;
@@ -52,10 +58,11 @@ const AuthProvider: React.FC = ({ children }) => {
 
       setAuthData({ token, user });
     },
-    onError: (error) => {
+    onError: (error: ApolloError) => {
       const errors = errorParser(error);
 
-      const errorMessage = errors.length > 0 ? errors[0].message : 'Something went wrong.';
+      const errorMessage =
+        errors.length > 0 ? errors[0].message : 'Something went wrong.';
 
       throw new Error(errorMessage);
     },
